@@ -57,7 +57,28 @@ def count_odd(left, right):
     return count
 
 if __name__ == '__main__':
+    # There is a piece of missing functionality here.
+    #
+    # Function dodd_left(left) would take a left bound and produce the smallest
+    # dodd number >= left.
+    #
+    # Function dodd_right(right) would take a right bound and produce the
+    # largest dodd number <= right.
+    #
+    # If dodd_left(left) > left, for example, it is guaranteed that all numbers
+    # between those two will be deven.
+    #
+    # Implementation of those two functions is left as an exercise. The bounds
+    # `left` and `right` below are intentially dodd as if there have already
+    # been transoformed by the said functions.
     left = 1
     right = int("1" * 10000)
-    even_count = (right - left) - count_odd(left, right) + 1
+
+    total_count = right - left
+    dodd_count = count_odd(left, right)
+    even_count = total_count - dodd_count + 1
     print "even count =", even_count
+
+    # $ time python count.py
+    # ...
+    # python count.py  0.69s user 0.01s system 99% cpu 0.703 total
