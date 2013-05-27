@@ -1,6 +1,3 @@
-import math
-
-
 NDIGITS = 5  # == len([1, 3, 5, 7, 9])
 
 
@@ -18,12 +15,9 @@ def num_to_digits(num):
         num /= 10
     return result
 
-def pow(a, b):
-    return int(math.pow(a, b))
-
 def total_odd(ndigits):
     """Count all dodd numbers that have `ndigits` digits"""
-    return pow(NDIGITS, ndigits)
+    return NDIGITS ** ndigits
 
 def count_valid_digits(digit):
     """Count how many odd digits there are when counting from `digit`"""
@@ -64,6 +58,6 @@ def count_odd(left, right):
 
 if __name__ == '__main__':
     left = 1
-    right = 111111111111111111111111111111111111
+    right = int("1" * 10000)
     even_count = (right - left) - count_odd(left, right) + 1
     print "even count =", even_count
